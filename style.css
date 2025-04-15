@@ -1,0 +1,45 @@
+body {
+  background-color: #222;
+  color: #fff;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.loop-box {
+  display: flex;
+  gap: 40px;
+}
+
+.loop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.volume-slider {
+  writing-mode: bt-lr;
+  -webkit-appearance: slider-vertical;
+  height: 100px;
+  margin-bottom: 15px;
+  background: transparent;
+}
+
+.play-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  background-color: #444;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.play-btn:hover {
+  background-color: #666;
+}
