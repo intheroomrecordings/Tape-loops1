@@ -27,8 +27,8 @@ document.querySelectorAll(".loop-player").forEach((player, index) => {
     loops[index].volume = volumeSlider.value;
   });
 
+  // Add touch event for mobile devices
   volumeSlider.addEventListener("touchmove", () => {
     loops[index].volume = volumeSlider.value;
   });
 });
-
