@@ -1,32 +1,75 @@
-const loopFiles = [
-  "audio/loop1.mp3",
-  "audio/loop2.mp3",
-  "audio/loop3.mp3",
-  "audio/loop4.mp3"
-];
+body {
+    font-family: Arial, sans-serif;
+    background-color: #222;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
 
-const audioElements = loopFiles.map((src, i) => {
-  const audio = new Audio(src);
-  audio.loop = true;
-  audio.volume = 0.5;
-  return audio;
-});
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+}
 
-document.querySelectorAll(".play-btn").forEach((btn, i) => {
-  btn.addEventListener("click", () => {
-    const audio = audioElements[i];
-    if (audio.paused) {
-      audio.play();
-      btn.textContent = "■";
-    } else {
-      audio.pause();
-      btn.textContent = "▶";
-    }
-  });
-});
+.loop-player {
+    text-align: center;
+    margin: 0 20px;
+}
 
-document.querySelectorAll(".volume-slider").forEach((slider, i) => {
-  slider.addEventListener("input", (e) => {
-    audioElements[i].volume = parseFloat(e.target.value);
-  });
-});
+button {
+    background-color: white;
+    color: #444;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 150px;
+}
+
+button:hover {
+    background-color: #f1f1f1;
+}
+
+.stop-btn {
+    background-color: white;
+    color: #444;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 150px;
+}
+
+.volume-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100px;
+    height: 10px;
+    background: #444;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.volume-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+}
