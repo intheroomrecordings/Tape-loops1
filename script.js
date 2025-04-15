@@ -1,75 +1,34 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #222;
-    color: white;
-    margin: 0;
-    padding: 0;
-}
+const loops = [
+  new Audio("loop1.mp3"),
+  new Audio("loop2.mp3"),
+  new Audio("loop3.mp3"),
+  new Audio("loop4.mp3")
+];
 
-.container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 100vh;
-}
+loops.forEach(loop => {
+  loop.loop = true;
+});
 
-.loop-player {
-    text-align: center;
-    margin: 0 20px;
-}
+document.querySelectorAll(".loop-player").forEach((player, index) => {
+  const playBtn = player.querySelector(".play-btn");
+  const stopBtn = player.querySelector(".stop-btn");
+  const volumeSlider = player.querySelector(".volume-slider");
 
-button {
-    background-color: white;
-    color: #444;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    margin: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    width: 150px;
-}
+  playBtn.addEventListener("click", () => {
+    loops[index].play();
+  });
 
-button:hover {
-    background-color: #f1f1f1;
-}
+  stopBtn.addEventListener("click", () => {
+    loops[index].pause();
+    loops[index].currentTime = 0;
+  });
 
-.stop-btn {
-    background-color: white;
-    color: #444;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    margin-top: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    width: 150px;
-}
+  volumeSlider.addEventListener("input", () => {
+    loops[index].volume = volumeSlider.value;
+  });
 
-.volume-slider {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 100px;
-    height: 10px;
-    background: #444;
-    border-radius: 5px;
-    margin-bottom: 1rem;
-}
+  volumeSlider.addEventListener("touchmove", () => {
+    loops[index].volume = volumeSlider.value;
+  });
+});
 
-.volume-slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    background: white;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-.volume-slider::-moz-range-thumb {
-    width: 20px;
-    height: 20px;
-    background: white;
-    border-radius: 50%;
-    cursor: pointer;
-}
