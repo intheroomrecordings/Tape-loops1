@@ -1,45 +1,75 @@
 body {
-  background-color: #222;
-  color: #fff;
-  font-family: sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #222;
+    color: white;
+    margin: 0;
+    padding: 0;
 }
 
-.loop-box {
-  display: flex;
-  gap: 40px;
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
 }
 
-.loop {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.loop-player {
+    text-align: center;
+    margin: 0 20px;
+}
+
+button {
+    background-color: white;
+    color: #444;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 150px;
+}
+
+button:hover {
+    background-color: #f1f1f1;
+}
+
+.stop-btn {
+    background-color: white;
+    color: #444;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 150px;
 }
 
 .volume-slider {
-  writing-mode: bt-lr;
-  -webkit-appearance: slider-vertical;
-  height: 100px;
-  margin-bottom: 15px;
-  background: transparent;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100px;
+    height: 10px;
+    background: #444;
+    border-radius: 5px;
+    margin-bottom: 1rem;
 }
 
-.play-btn {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  border: none;
-  background-color: #444;
-  color: white;
-  font-size: 24px;
-  cursor: pointer;
-  transition: background 0.3s;
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
-.play-btn:hover {
-  background-color: #666;
+.volume-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
 }
